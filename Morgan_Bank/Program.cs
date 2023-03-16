@@ -31,6 +31,14 @@ class Program
         }
         public void WithdrawMoney()
         {
+            Console.WriteLine("Ange din pinkod:");
+            string enteredPin = Console.ReadLine();
+            if (enteredPin != pinCode)
+            {
+                Console.WriteLine("Felaktig pinkod.");
+                return;
+            }
+
             Console.WriteLine("Ange från vilket konto du vill ta ut pengar:");
             string label = Console.ReadLine();
             Account account = GetAccountByLabel(label);
@@ -171,6 +179,7 @@ class Program
         while (true)
         {
             Console.Clear();
+            Console.WriteLine("Välkommen till Morgan_Bank!");
             Console.WriteLine("Ange ditt användarnamn: ");
             string login = Console.ReadLine();
 
