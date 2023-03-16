@@ -8,24 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/Users/morganlindzen/.nuget/packages/": {}
+    "C:\\Users\\morga\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/morganlindzen/Desktop/git/Morgan_Bank2/Morgan_Bank/Morgan_Bank.csproj",
+      "projectUniqueName": "C:\\Users\\morga\\Source\\Repos\\Morgan_Bank2\\Morgan_Bank\\Morgan_Bank.csproj",
       "projectName": "Morgan_Bank",
-      "projectPath": "/Users/morganlindzen/Desktop/git/Morgan_Bank2/Morgan_Bank/Morgan_Bank.csproj",
-      "packagesPath": "/Users/morganlindzen/.nuget/packages/",
-      "outputPath": "/Users/morganlindzen/Desktop/git/Morgan_Bank2/Morgan_Bank/obj/",
+      "projectPath": "C:\\Users\\morga\\Source\\Repos\\Morgan_Bank2\\Morgan_Bank\\Morgan_Bank.csproj",
+      "packagesPath": "C:\\Users\\morga\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\morga\\Source\\Repos\\Morgan_Bank2\\Morgan_Bank\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/morganlindzen/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\morga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -59,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

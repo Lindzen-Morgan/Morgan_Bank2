@@ -25,7 +25,7 @@ class Program
         //creating the users in the console application using array
         //each with their own login credentials
         User[] users = new User[5];
-
+        //testing new branch using this lol
         users[0] = new User { logIn = "Elina", pinCode = "3333" };
         users[1] = new User { logIn = "Emily", pinCode = "9797" };
         users[2] = new User { logIn = "Michaela", pinCode = "9898" };
