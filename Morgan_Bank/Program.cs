@@ -56,6 +56,7 @@ class Program
                 return;
             }
 
+
             Console.WriteLine("Ange din pinkod:");
             string pin = Console.ReadLine();
             if (pin != this.pinCode)
@@ -63,7 +64,6 @@ class Program
                 Console.WriteLine("Felaktig pinkod.");
                 return;
             }
-
             account.Balance -= amount;
             Console.WriteLine($"Ny saldo på {label}: {account.Balance:C}");
         }
