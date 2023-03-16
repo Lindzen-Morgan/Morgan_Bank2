@@ -3,6 +3,7 @@
 using System.Globalization;
 using System.Security.Principal;
 using System.Xml.Linq;
+using static Morgan_Bank.Program;
 
 namespace Morgan_Bank;
 
@@ -19,6 +20,7 @@ class Program
         {
             return Accounts.FirstOrDefault(a => a.Label == label);
         }
+
         public void ListAccounts()
         {
             Console.WriteLine($"Konton för användare:");
@@ -27,13 +29,58 @@ class Program
                 Console.WriteLine($"{account.Label}: {account.Balance:C}");
             }
         }
+        public void WithdrawMoney()
+        {
+            Console.WriteLine("Ange från vilket konto du vill ta ut pengar:");
+            string label = Console.ReadLine();
+            Account account = GetAccountByLabel(label);
+            if (account == null)
+            {
+                Console.WriteLine("Kontot finns inte.");
+                return;
+            }
+
+            Console.WriteLine($"Nuvarande saldo på {label}: {account.Balance:C}");
+
+            Console.WriteLine("Ange belopp att ta ut:");
+            decimal amount;
+            if (!decimal.TryParse(Console.ReadLine(), out amount))
+            {
+                Console.WriteLine("Felaktigt belopp.");
+                return;
+            }
+
+            if (account.Balance < amount)
+            {
+                Console.WriteLine("Det finns inte tillräckligt med pengar på kontot.");
+                return;
+            }
+
+            account.Balance -= amount;
+            Console.WriteLine($"Ny saldo på {label}: {account.Balance:C}");
+        }
+
     }
     public class Account
     {
         public string Label { get; set; }
         public decimal Balance { get; set; }
+
+        public void Withdraw(decimal amount)
+        {
+            if (Balance < amount)
+            {
+                Console.WriteLine("Det finns inte tillräckligt med pengar på kontot.");
+                return;
+            }
+
+            Balance -= amount;
+            Console.WriteLine($"Ny saldo på {Label}: {Balance:C}");
+        }
     }
-      
+
+
+
     static void Transfer(User user)
     {
         Console.WriteLine("Ange från vilket konto du vill överföra pengarna:");
@@ -193,11 +240,55 @@ class Program
                     {
                         Console.Clear();
                         Console.WriteLine("Withdraw money:");
-                        //transfer operation
-                        
+
+                        // List available accounts
+                        Console.WriteLine("Available accounts:");
+                        foreach (Account account in currentUser.Accounts)
+                        {
+                            Console.WriteLine("{0}: {1:C}", account.Label, account.Balance);
+                        }
+
+                        // Prompt user to choose an account
+                        Console.Write("Enter the label of the account you want to withdraw from: ");
+                        string accountLabel = Console.ReadLine();
+
+                        // Check if account exists
+                        Account withdrawAccount = currentUser.GetAccountByLabel(accountLabel);
+                        if (withdrawAccount == null)
+                        {
+                            Console.WriteLine("Invalid account label.");
+                            Console.WriteLine("Press ENTER to return to the main menu...");
+                            Console.ReadLine();
+                            continue;
+                        }
+
+                        // Prompt user to enter withdrawal amount
+                        Console.Write("Enter the amount you want to withdraw: ");
+                        decimal amount;
+                        if (!decimal.TryParse(Console.ReadLine(), out amount))
+                        {
+                            Console.WriteLine("Invalid amount.");
+                            Console.WriteLine("Press ENTER to return to the main menu...");
+                            Console.ReadLine();
+                            continue;
+                        }
+
+                        // Withdraw money from account
+                        try
+                        {
+                            withdrawAccount.Withdraw(amount);
+                            Console.WriteLine("{0:C} has been withdrawn from {1}.", amount, withdrawAccount.Label);
+                            Console.WriteLine("New balance: {0:C}", withdrawAccount.Balance);
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+
                         Console.WriteLine("Press ENTER to return to the main menu...");
                         Console.ReadLine();
                     }
+
                     else if (input == "4")
                     {
                         Console.Clear();
