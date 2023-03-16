@@ -1,0 +1,15 @@
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/bin/Debug/net6.0/Morgan_Bank
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/bin/Debug/net6.0/Morgan_Bank.deps.json
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/bin/Debug/net6.0/Morgan_Bank.runtimeconfig.json
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/bin/Debug/net6.0/Morgan_Bank.dll
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/bin/Debug/net6.0/Morgan_Bank.pdb
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/Morgan_Bank.csproj.AssemblyReference.cache
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/Morgan_Bank.GeneratedMSBuildEditorConfig.editorconfig
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/Morgan_Bank.AssemblyInfoInputs.cache
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/Morgan_Bank.AssemblyInfo.cs
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/Morgan_Bank.csproj.CoreCompileInputs.cache
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/Morgan_Bank.dll
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/refint/Morgan_Bank.dll
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/Morgan_Bank.pdb
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/Morgan_Bank.genruntimeconfig.cache
+/Users/morganlindzen/Desktop/Morgan_Bank/Morgan_Bank/Morgan_Bank/obj/Debug/net6.0/ref/Morgan_Bank.dll
