@@ -75,9 +75,9 @@ class Program
         destinationAccount.Balance += amount;
 
         Console.WriteLine($"Överföring genomförd. Källkonto: {sourceAccount.Label}, ny balans: {sourceAccount.Balance:C}. " +
-            $"Målkonto: {destinationAccount.Label}, ny balans: {destinationAccount.Balance:C}.");
+            $"Målkonto: {destinationAccount.Label}, ny balans: {destinationAccount.Balance:SEK}.");
 
-        Console.WriteLine($"Tidigare balanser:\n{sourceAccount.Label}: {oldSourceBalance:C}\n{destinationAccount.Label}: {oldDestinationBalance:C}");
+        Console.WriteLine($"Tidigare balanser:\n{sourceAccount.Label}: {oldSourceBalance:SEK}\n{destinationAccount.Label}: {oldDestinationBalance:SEK}");
     }
     static void Main(string[] args)
     {
@@ -94,29 +94,29 @@ class Program
 
         users[0].Accounts = new Account[] {
 
-    new Account { Label = "Checking", Balance = 1000.00M },
-    new Account { Label = "Savings", Balance = 5000.00M },
-    new Account { Label = "Savings", Balance = 5000.00M },
-    new Account { Label = "Savings", Balance = 5000.00M },
-    new Account { Label = "Savings", Balance = 5000.00M }
+    new Account { Label = "Konto", Balance = 1000.00M },
+    new Account { Label = "Sparkonto", Balance = 5000.00M },
+    new Account { Label = "Resekonto", Balance = 5000.00M },
+    new Account { Label = "Matkonto", Balance = 5000.00M },
+    new Account { Label = "Investeringskonto", Balance = 5000.00M }
 };
         users[1].Accounts = new Account[] {
-        new Account { Label = "Main", Balance = 2500.00M },
-        new Account { Label = "Secondary", Balance = 100.50M }
+        new Account { Label = "Konto", Balance = 2500.00M },
+        new Account { Label = "Sparkonto", Balance = 100.50M }
     };
         users[2].Accounts = new Account[] {
-        new Account { Label = "Personal", Balance = 15000.00M },
-        new Account { Label = "Business", Balance = 8000.00M },
-        new Account { Label = "Savings", Balance = 500.75M }
+        new Account { Label = "Konto", Balance = 15000.00M },
+        new Account { Label = "Sparkonto", Balance = 8000.00M },
+        new Account { Label = "Matkonto", Balance = 500.75M }
     };
         users[3].Accounts = new Account[] {
-        new Account { Label = "Primary", Balance = 200.00M }
+        new Account { Label = "Konto", Balance = 200.00M }
     };
         users[4].Accounts = new Account[] {
-        new Account { Label = "Checking", Balance = 3000.00M },
-        new Account { Label = "Savings", Balance = 15000.00M },
-        new Account { Label = "Investment", Balance = 20000.50M },
-        new Account { Label = "Savings", Balance = 5000.00M }
+        new Account { Label = "Konto", Balance = 3000.00M },
+        new Account { Label = "Sparkonto", Balance = 15000.00M },
+        new Account { Label = "Resekonto", Balance = 20000.50M },
+        new Account { Label = "Matkonto", Balance = 5000.00M }
     };
         User currentUser = null;
 
