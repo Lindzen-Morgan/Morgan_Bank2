@@ -70,6 +70,51 @@ class Program
 
 
     }
+        public Account GetAccountByLabel(string label)
+        {
+            return Accounts.FirstOrDefault(a => a.Label == label);
+        }
+
+        public void ListAccounts()
+        {
+            Console.WriteLine($"Konton för användare:");
+            foreach (Account account in Accounts)
+            {
+                Console.WriteLine($"{account.Label}: {account.Balance:C}");
+            }
+        }
+        public void WithdrawMoney()
+        {
+            Console.WriteLine("Ange från vilket konto du vill ta ut pengar:");
+            string label = Console.ReadLine();
+            Account account = GetAccountByLabel(label);
+            if (account == null)
+            {
+                Console.WriteLine("Kontot finns inte.");
+                return;
+            }
+
+            Console.WriteLine($"Nuvarande saldo på {label}: {account.Balance:C}");
+
+            Console.WriteLine("Ange belopp att ta ut:");
+            decimal amount;
+            if (!decimal.TryParse(Console.ReadLine(), out amount))
+            {
+                Console.WriteLine("Felaktigt belopp.");
+                return;
+            }
+
+            if (account.Balance < amount)
+            {
+                Console.WriteLine("Det finns inte tillräckligt med pengar på kontot.");
+                return;
+            }
+
+            account.Balance -= amount;
+            Console.WriteLine($"Ny saldo på {label}: {account.Balance:C}");
+        }
+
+    }
     public class Account
     {
         public string Label { get; set; }
@@ -242,6 +287,12 @@ class Program
                         //Transfer operation
                         Transfer(currentUser);
 
+                        //list current useer accounts
+                        currentUser.ListAccounts();
+                        Console.WriteLine("Överföring av konton:");
+                        //Transfer operation
+                        Transfer(currentUser);
+                        
                         Console.WriteLine("Press ENTER to return to the main menu...");
                         Console.ReadLine();
                     }
