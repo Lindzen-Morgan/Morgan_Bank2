@@ -75,9 +75,9 @@ class Program
         destinationAccount.Balance += amount;
 
         Console.WriteLine($"Överföring genomförd. Källkonto: {sourceAccount.Label}, ny balans: {sourceAccount.Balance:C}. " +
-            $"Målkonto: {destinationAccount.Label}, ny balans: {destinationAccount.Balance:SEK}.");
+            $"Målkonto: {destinationAccount.Label}, ny balans: {destinationAccount.Balance:C}.");
 
-        Console.WriteLine($"Tidigare balanser:\n{sourceAccount.Label}: {oldSourceBalance:SEK}\n{destinationAccount.Label}: {oldDestinationBalance:SEK}");
+        Console.WriteLine($"Tidigare balanser:\n{sourceAccount.Label}: {oldSourceBalance:C}\n{destinationAccount.Label}: {oldDestinationBalance:C}");
     }
     static void Main(string[] args)
     {
