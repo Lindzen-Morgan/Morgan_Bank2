@@ -11,7 +11,7 @@ namespace Morgan_Bank;
 class Program
 {
     public class User
-    {   //defining user class for login and pin number
+    {   //defining user class for login and pin number as well as authentication
         internal Account[] Accounts;
         public string logIn { get; set; }
         public string pinCode { get; set; }
