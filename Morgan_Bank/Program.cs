@@ -56,60 +56,6 @@ class Program
                 return;
             }
 
-
-            Console.WriteLine("Ange din pinkod:");
-            string pin = Console.ReadLine();
-            if (pin != this.pinCode)
-            {
-                Console.WriteLine("Felaktig pinkod.");
-                return;
-            }
-            account.Balance -= amount;
-            Console.WriteLine($"Ny saldo på {label}: {account.Balance:C}");
-        }
-
-
-    }
-        public Account GetAccountByLabel(string label)
-        {
-            return Accounts.FirstOrDefault(a => a.Label == label);
-        }
-
-        public void ListAccounts()
-        {
-            Console.WriteLine($"Konton för användare:");
-            foreach (Account account in Accounts)
-            {
-                Console.WriteLine($"{account.Label}: {account.Balance:C}");
-            }
-        }
-        public void WithdrawMoney()
-        {
-            Console.WriteLine("Ange från vilket konto du vill ta ut pengar:");
-            string label = Console.ReadLine();
-            Account account = GetAccountByLabel(label);
-            if (account == null)
-            {
-                Console.WriteLine("Kontot finns inte.");
-                return;
-            }
-
-            Console.WriteLine($"Nuvarande saldo på {label}: {account.Balance:C}");
-
-            Console.WriteLine("Ange belopp att ta ut:");
-            decimal amount;
-            if (!decimal.TryParse(Console.ReadLine(), out amount))
-            {
-                Console.WriteLine("Felaktigt belopp.");
-                return;
-            }
-
-            if (account.Balance < amount)
-            {
-                Console.WriteLine("Det finns inte tillräckligt med pengar på kontot.");
-                return;
-            }
-
             account.Balance -= amount;
             Console.WriteLine($"Ny saldo på {label}: {account.Balance:C}");
         }
@@ -225,10 +171,10 @@ class Program
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("Enter your login:");
+            Console.WriteLine("Ange ditt användarnamn: ");
             string login = Console.ReadLine();
 
-            Console.WriteLine("Enter your PIN:");
+            Console.WriteLine("Ange din Pinkod: ");
             string pin = Console.ReadLine();
 
             //creating fail message if user enters wrong login or pin
@@ -275,7 +221,7 @@ class Program
                         {
                             Console.WriteLine("{0}: {1:C}", account.Label, account.Balance);
                         }
-                        Console.WriteLine("Press ENTER to return to the main menu...");
+                        Console.WriteLine("Tryck på ENTER för att återvända till menyn...");
                         Console.ReadLine();
                     }
                     else if (input == "2")
@@ -287,13 +233,7 @@ class Program
                         //Transfer operation
                         Transfer(currentUser);
 
-                        //list current useer accounts
-                        currentUser.ListAccounts();
-                        Console.WriteLine("Överföring av konton:");
-                        //Transfer operation
-                        Transfer(currentUser);
-                        
-                        Console.WriteLine("Press ENTER to return to the main menu...");
+                        Console.WriteLine("Tryck på ENTER för att återvända till menyn...");
                         Console.ReadLine();
                     }
                     else if (input == "3")
@@ -309,26 +249,26 @@ class Program
                         }
 
                         // Prompt user to choose an account
-                        Console.Write("Enter the label of the account you want to withdraw from: ");
+                        Console.Write("Vilket konto vill du ta ut pengar från?: ");
                         string accountLabel = Console.ReadLine();
 
                         // Check if account exists
                         Account withdrawAccount = currentUser.GetAccountByLabel(accountLabel);
                         if (withdrawAccount == null)
                         {
-                            Console.WriteLine("Invalid account label.");
-                            Console.WriteLine("Press ENTER to return to the main menu...");
+                            Console.WriteLine("Felaktigt kontonamn");
+                            Console.WriteLine("Tryck på ENTER för att återvända till menyn...");
                             Console.ReadLine();
                             continue;
                         }
 
                         // Prompt user to enter withdrawal amount
-                        Console.Write("Enter the amount you want to withdraw: ");
+                        Console.Write("Hur mycket pengar vill du ta ut?: ");
                         decimal amount;
                         if (!decimal.TryParse(Console.ReadLine(), out amount))
                         {
-                            Console.WriteLine("Invalid amount.");
-                            Console.WriteLine("Press ENTER to return to the main menu...");
+                            Console.WriteLine("Ogiltig summa. ");
+                            Console.WriteLine("Tryck på ENTER för att återvända till menyn...");
                             Console.ReadLine();
                             continue;
                         }
@@ -337,28 +277,28 @@ class Program
                         try
                         {
                             withdrawAccount.Withdraw(amount);
-                            Console.WriteLine("{0:C} has been withdrawn from {1}.", amount, withdrawAccount.Label);
-                            Console.WriteLine("New balance: {0:C}", withdrawAccount.Balance);
+                            Console.WriteLine("{0:C} har dragits från {1}.", amount, withdrawAccount.Label);
+                            Console.WriteLine("Nytt saldo: {0:C}", withdrawAccount.Balance);
                         }
                         catch (InvalidOperationException ex)
                         {
                             Console.WriteLine(ex.Message);
                         }
 
-                        Console.WriteLine("Press ENTER to return to the main menu...");
+                        Console.WriteLine("Tryck på ENTER för att återvända till menyn...");
                         Console.ReadLine();
                     }
 
                     else if (input == "4")
                     {
                         Console.Clear();
-                        Console.WriteLine("Logout successful.");
+                        Console.WriteLine("Välkommen åter!");
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid option.");
-                        Console.WriteLine("Press ENTER to return to the main menu...");
+                        Console.WriteLine("Ogiltigt knapptryck.");
+                        Console.WriteLine("Tryck på ENTER för att återvända till menyn...");
                         Console.ReadLine();
                     }
                 }
@@ -366,7 +306,7 @@ class Program
             }
             else
             {
-                Console.WriteLine("Invalid login or PIN.");
+                Console.WriteLine("Ogiltig login eller pinkod!");
             }
 
 
